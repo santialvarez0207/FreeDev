@@ -1,0 +1,73 @@
+/* administration.components.css */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+.banner {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  text-transform: uppercase;
+}
+
+.logout a {
+  text-decoration: none;
+  color: white;
+}
+
+.main {
+  display: flex;
+  margin-top: 40px;
+}
+
+.left-frame, .right-frame {
+  flex: 1;
+  padding: 20px;
+}
+
+.left-frame .banner, .right-frame .banner {
+  background-color: #b18800;
+  color: white;
+  font-weight: bold;
+  text-transform: lowercase;
+  padding: 5px;
+}
+
+.content {
+  margin-top: 20px;
+}
+
+.link {
+  color: black;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.icon {
+  margin-right: 5px;
+}
+
+.right-frame .profile {
+  text-align: center;
+  margin-top: auto;
+}
+
+.right-frame .profile img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.username {
+  font-size: 14px;
+}
