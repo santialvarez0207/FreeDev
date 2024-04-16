@@ -1,7 +1,7 @@
 header{
     background-color: #000106;
     width: 100%;
-    min-height: 60px;
+    min-height: 90px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -16,7 +16,7 @@ header{
     display: flex;
     width: calc(100% - 500px);
     color: #fafafafa;
-    font-size: 16px;
+    font-size: 20px;
     justify-content: flex-end;
     gap: 60px;
     padding-right: 40px;
@@ -31,9 +31,12 @@ header{
     border-radius: 40px;
     padding: 8px 16px;
     color: #000106;
-    font-size: 12px;
+    font-size: 15px;
     border: none;
     cursor: pointer;
+    margin: 15px;
+    width: 150px;
+    
 }
 
 .box-btn{
@@ -46,4 +49,15 @@ header{
 a{
     text-decoration: none;
     color: inherit;
+}
+.nav-link {
+    font-size: 20px; /* Ajusta el tamaño del texto del navbar */
+    color: #fff; /* Color del texto por defecto */
+    margin: 15px; /* Centrar horizontalmente el texto */
+}
+
+.nav-link:hover,
+.nav-link:focus,
+.nav-link:active {
+    color: orange; /* Color del texto al pasar el ratón, enfocar o hacer clic */
 }

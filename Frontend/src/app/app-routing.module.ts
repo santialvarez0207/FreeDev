@@ -11,6 +11,9 @@ import { AdministrationComponent } from './components/administration/administrat
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
+  { path: 'home#nosotros', component: HomeComponent },
+  { path: 'home#servicios', component: HomeComponent },
+  { path: 'home#reseñas', component: HomeComponent },
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'visualizer', component: VisualizerComponent},
