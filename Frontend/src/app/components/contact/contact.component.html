@@ -1,1 +1,36 @@
-<p>contact works!</p>
+
+<main>
+    <section class="conteiner-form">
+
+        <form [formGroup]="contactForm" (submit)="Send()">
+            <h1>Contactanos</h1>
+            <fieldset>
+                <label>
+                    Nombre
+                    <input type="text" class="input-contact" formControlName="name">
+                </label>
+                <label>
+                    Correo
+                    <input type="text" class="input-contact" formControlName="email">
+                </label> 
+                <label>
+                    Asunto
+                    <input type="text" class="input-contact"  formControlName="subject">
+                </label> 
+                <label>
+                    Mensaje
+                    <textarea cols="30" rows="10" class="input-contact" formControlName="message"></textarea>
+                </label> 
+            </fieldset>
+            <button type="submit" class="btn-contact">Enviar</button>    
+        </form>
+
+    </section>
+
+    <aside class="conteiner-Info">
+
+        <div class="info shadow"><p>¿Tienes alguna pregunta, comentario o sugerencia? ¡Nos encantaría saber de ti! Utiliza nuestro formulario de contacto para enviarnos un mensaje. Estamos aquí para ayudarte en cualquier cosa que necesites. ¡Gracias por comunicarte con nosotros!</p></div>
+        <img class="person" src="../../../assets/img/Group 206.svg" >
+        
+    </aside>
+</main>

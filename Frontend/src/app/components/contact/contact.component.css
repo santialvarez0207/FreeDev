@@ -1,0 +1,80 @@
+main{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 90px;
+    margin-bottom: 40px;
+    min-width: 600px;
+}
+
+
+section, aside{
+    width: 45%;
+    max-width: 600px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+fieldset{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.input-contact{
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    background-color: #F5F0E5;
+    outline: none;
+    padding: 8px 16px;
+}
+
+label{
+    font-weight: bold;
+}
+
+.btn-contact{
+    background-color: #D0BD14;
+    border-radius: 40px;
+    padding: 8px 16px;
+    color: #000106;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    margin: 15px;
+    width: 150px;
+}
+
+.conteiner-Info{
+    position: relative;
+}
+
+.person{
+    position: absolute;
+    right: 0;
+    top: 160px;
+    width: 80%;
+    max-width: 420px;
+    z-index: 999;
+}
+
+.info{
+    position: absolute;
+    left: 0;
+    top: 40px;
+    padding: 12px;
+    width:60%;
+    z-index: 1;
+    border-radius: 8px;
+}
+
+.info p {
+    font-size: 14px;
+    text-align: center;
+}
