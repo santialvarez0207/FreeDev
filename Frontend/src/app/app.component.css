@@ -61,3 +61,20 @@ a{
 .nav-link:active {
     color: orange; /* Color del texto al pasar el ratón, enfocar o hacer clic */
 }
+
+footer {
+
+    background-color: #000106;
+
+}
+
+.footer-social-icons .social-icon {
+    font-size: 34px;
+    margin-right: 30px;
+    color: #D0BD14;
+    
+  }
+  
+  .footer-social-icons .social-icon:hover {
+    color: #fff; /* Cambiar color al pasar el mouse para redes sociales como Twitter */
+  }
