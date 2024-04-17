@@ -11,6 +11,10 @@ export class AppComponent {
   constructor(private router: Router) { }
 
   goTo(parametro: string) {
-    this.router.navigate(['/' + parametro]);
+    this.router.navigate(['login/']);
+  }
+
+  goToReg(parametro: string) {
+    this.router.navigate(['register/']);
   }
 }
