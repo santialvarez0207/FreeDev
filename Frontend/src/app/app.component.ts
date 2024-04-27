@@ -17,4 +17,15 @@ export class AppComponent {
   goToReg(parametro: string) {
     this.router.navigate(['register/']);
   }
+
+
+
+
+  isInAdministrationPage(): boolean {
+    // Obtiene la URL actual del router
+    const currentUrl = this.router.url;
+
+    // Comprueba si la URL actual corresponde a la página de administración
+    return currentUrl === '/administration';
+  }
 }

@@ -1,21 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="administration.component.css">
-  <title>Administración</title>
-</head>
-<body>
-<div class="banner">
+
+<!--<div class="banner">
   <div class="title">Administración</div>
   <div class="logout"><a href="#">Cerrar Sesión</a></div>
-</div>
-<div class="main">
+</div>-->
+<div class="main p-5 mb-3 mt-5">
+  <!--
   <div class="left-frame">
     <div class="banner">Usuarios</div>
     <div class="content">
-      <a href="#" class="link"><span class="icon">+</span> Añadir</a>
+     
+      <a href="#" class="link" data-bs-toggle="modal" data-bs-target="#userModal"><span class="icon">+</span> Añadir</a>
+
+
       <a href="#" class="link"><span class="icon">✎</span> Editar</a>
     </div>
     <div class="banner">Roles</div>
@@ -24,10 +20,107 @@
       <a href="#" class="link"><span class="icon">✎</span> Editar</a>
     </div>
   </div>
+-->
+ 
+    <div class="left-frame">
+      <!-- 
+      <div class="banner">Usuarios</div>
+      <div class="content">
+        DataTable para Usuarios 
+        <a href="#" class="link" data-bs-toggle="modal" data-bs-target="#userModal"><span class="icon">+</span> Añadir</a>
+
+        <div class="datatable">
+          <div class="row">
+            <div class="col-4">Nombre</div>
+            <div class="col-4">Correo electrónico</div>
+            <div class="col-4">Acciones</div>
+          </div>
+          <div class="row" *ngFor="let user of users">
+            <div class="col-4">{{ user.name }}</div>
+            <div class="col-4">{{ user.email }}</div>
+            <div class="col-4">
+              <button class="btn btn-primary btn-sm" >Editar</button>
+              <button class="btn btn-danger btn-sm" >Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+-->
+      
+        <div class="banner mt-5">Usuarios</div>
+        <div class="content">
+          <a href="#" class="link" data-bs-toggle="modal" data-bs-target="#userModal"><span class="icon">+</span> Añadir</a>
+
+          <!-- DataTable para Usuarios -->
+          <div class="datatable">
+            <!-- Encabezado de la tabla -->
+            <div class="row header">
+              <div class="col-4">Nombre</div>
+              <div class="col-4">Correo electrónico</div>
+              <div class="col-4">Acciones</div>
+            </div>
+            <!-- Filas de la tabla -->
+            <div class="row" *ngFor="let user of users">
+              <div class="col-4">{{ user.name }}</div>
+              <div class="col-4">{{ user.email }}</div>
+              <div class="col-4">
+                <button class="btn btn-primary btn-sm me-2 mb-2 mt-2">Editar</button>
+                <button class="btn btn-danger btn-sm mb-2 mt-2">Eliminar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+
+
+      <div class="banner mt-5">Roles</div>
+      <div class="content">
+        <!-- DataTable para Usuarios -->
+        <a href="#" class="link" data-bs-toggle="modal" data-bs-target="#userModal"><span class="icon">+</span> Añadir</a>
+
+        <div class="datatable">
+          <div class="row">
+            <div class="col-4">Nombre</div>
+            <div class="col-4">Correo electrónico</div>
+            <div class="col-4">Acciones</div>
+          </div>
+          <div class="row" *ngFor="let user of users">
+            <div class="col-4">{{ user.name }}</div>
+            <div class="col-4">{{ user.email }}</div>
+            <div class="col-4">
+              <button class="btn btn-primary btn-sm me-2 mb-2 mt-2">Editar</button>
+              <button class="btn btn-danger btn-sm mb-2 mt-2">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  
+
   <div class="right-frame">
-    <div class="banner">Servicios</div>
+    <div class="banner mt-5">Servicios</div>
     <div class="content">
-      <a href="#" class="link">desarrollo_web <span class="icon">✎</span><span class="icon">🔍</span></a>
+      <a href="#" class="link" data-bs-toggle="modal" data-bs-target="#userModal"><span class="icon">+</span> Añadir</a>
+
+      <!-- DataTable para Usuarios -->
+      <div class="datatable">
+        <!-- Encabezado de la tabla -->
+        <div class="row header">
+          <div class="col-4">Nombre</div>
+          <div class="col-4">Correo electrónico</div>
+          <div class="col-4">Acciones</div>
+        </div>
+        <!-- Filas de la tabla -->
+        <div class="row" *ngFor="let user of users">
+          <div class="col-4">{{ user.name }}</div>
+          <div class="col-4">{{ user.email }}</div>
+          <div class="col-4">
+            <button class="btn btn-primary btn-sm me-2 mb-2 mt-2">Editar</button>
+            <button class="btn btn-danger btn-sm mb-2 mt-2">Eliminar</button>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="profile">
       <img src="user_profile_icon.png" alt="User Profile Icon">
@@ -35,5 +128,35 @@
     </div>
   </div>
 </div>
-</body>
-</html>
+
+
+<!-- Marcado del modal -->
+<div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="userModalLabel">Añadir Usuario</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="name" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="user.name" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Correo electrónico</label>
+            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="user.email" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+

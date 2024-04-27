@@ -1,7 +1,8 @@
+
+
 <header class="navbar navbar-expand-lg navbar-light fixed-top">
   <div class="container">
-    <div class="logo"><a class="navbar-brand" routerLink="/home"><img src="../assets/LogoFreeDev.png" ></a></div>
-    
+    <div class="logo"><a class="navbar-brand" routerLink="/home"><img src="../assets/LogoFreeDev.png"></a></div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,11 +26,14 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/contact">Contáctanos</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!isInAdministrationPage()">
           <button class="btn btn-header" (click)="goTo('login')">Iniciar sesión</button>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!isInAdministrationPage()">
           <button class="btn btn-header" (click)="goToReg('register')">Registrarse</button>
+        </li>
+        <li class="nav-item" *ngIf="isInAdministrationPage()">
+          <a class="nav-link" >Cerrar sesión</a>
         </li>
       </ul>
     </div>

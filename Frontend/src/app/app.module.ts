@@ -8,10 +8,12 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { VisualizerComponent } from './components/visualizer/visualizer.component';
+import { AdministrationComponent } from './components/administration/administration.component';
 
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    VisualizerComponent
+    VisualizerComponent,
+    AdministrationComponent
   ],
   imports: [
     BrowserModule,
