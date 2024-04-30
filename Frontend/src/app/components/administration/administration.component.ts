@@ -11,13 +11,23 @@ export class AdministrationComponent {
   users: any[] = [];
   service: any = {};
   services: any[] = [];
+  role: any = {};
+  roles: any[] = [];
   editedService: any = {}; // Almacena los datos del servicio que se está editando
+  editedRole: any = {};
 
   constructor() {
     this.users = [
       { id: 1, name: 'Usuario 1', email: 'usuario1@example.com' },
       { id: 2, name: 'Usuario 2', email: 'usuario2@example.com' },
     ];
+    this.roles = [
+      { id: 1, name: 'Admin', email: 'superuser' },
+      { id: 2, name: 'guest', email: 'read_only' },
+    ];
+
+    const storedRoles = localStorage.getItem('roles');
+    this.roles = storedRoles ? JSON.parse(storedRoles) : [];
 
     const storedServices = localStorage.getItem('services');
     this.services = storedServices ? JSON.parse(storedServices) : [];
@@ -25,7 +35,14 @@ export class AdministrationComponent {
 
   onSubmit() {
     console.log('Usuario guardado:', this.user);
+    this.addUser();
     $('#userModal').modal('hide');
+  }
+
+  onSubmitRoles() {
+    console.log('Rol guardado:', this.role);
+    this.addRole();
+    $('#roleModal').modal('hide');
   }
 
   onSubmitService() {
@@ -42,6 +59,24 @@ export class AdministrationComponent {
       localStorage.setItem('services', JSON.stringify(this.services));
     }
     $('#editServiceModal').modal('hide');
+  }
+
+  onEditRole() {
+    const index = this.roles.findIndex(s => s.id === this.editedRole.id);
+    if (index !== -1) {
+      this.roles[index] = { ...this.editedRole };
+      localStorage.setItem('roles', JSON.stringify(this.roles));
+    }
+    $('#editRolesModal').modal('hide');
+  }
+
+  addRole() {
+    this.roles.push({ ...this.role });
+    this.role = {};
+  }
+
+  deleteRole(index: number) {
+    this.roles.splice(index, 1);
   }
 
   addUser() {
@@ -68,4 +103,9 @@ export class AdministrationComponent {
     this.editedService = { ...service };
     $('#editServiceModal').modal('show');
   }
+  openEditModalRole(role: any) {
+    this.editedRole = { ...role };
+    $('#editRoleModal').modal('show');
+  }
+
 }

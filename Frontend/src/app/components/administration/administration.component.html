@@ -27,31 +27,30 @@
     <!-- Roles -->
     <div class="banner mt-5">Roles</div>
       <div class="content">
-       
-        <a href="#" class="link" data-bs-toggle="modal" data-bs-target="#userModal"><span class="icon">+</span> Añadir</a>
+
+        <a href="#" class="link" data-bs-toggle="modal" data-bs-target="#roleModal"><span class="icon">+</span> Añadir</a>
 
         <div class="datatable">
           <div class="row">
-            <div class="col-4">Nombre</div>
-            <div class="col-4">Correo electrónico</div>
+            <div class="col-4">Nombre Rol</div>
+            <div class="col-4">Privilegios</div>
             <div class="col-4">Acciones</div>
           </div>
-          <div class="row" *ngFor="let user of users">
-            <div class="col-4">{{ user.name }}</div>
-            <div class="col-4">{{ user.email }}</div>
+          <div class="row" *ngFor="let role of roles; let i = index;">
+            <div class="col-4">{{ role.name }}</div>
+            <div class="col-4">{{ role.email }}</div>
             <div class="col-4">
-              <button class="btn btn-primary btn-sm me-2 mb-2 mt-2">Editar</button>
-              <button class="btn btn-danger btn-sm mb-2 mt-2">Eliminar</button>
+              <button class="btn btn-primary btn-sm me-2 mb-2 mt-2" (click)="openEditModalRole(role)">Editar</button>
+              <button class="btn btn-danger btn-sm mb-2 mt-2" (click)="deleteRole(i)">Eliminar</button>
             </div>
           </div>
         </div>
       </div>
-      
-    
+
   </div>
   <div class="right-frame">
     <!-- Servicios -->
-    
+
     <div class="banner mt-5">Servicios</div>
 <div class="content">
   <a href="#" class="link" data-bs-toggle="modal" data-bs-target="#serviceModal"><span class="icon">+</span> Añadir</a>
@@ -72,7 +71,7 @@
   </div>
 </div>
 
-   
+
   </div>
 </div>
 
@@ -106,6 +105,33 @@
   </div>
 </div>
 
+ <!-- Marcado del modal de roles -->
+ <div class="modal fade" id="roleModal" tabindex="-1" aria-labelledby="roleModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="roleModalLabel">Añadir Rol</h5>
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+       </div>
+       <form (ngSubmit)="onSubmitRoles()" #roleForm="ngForm">
+         <div class="modal-body">
+           <div class="mb-3">
+             <label for="name" class="form-label">Nombre Rol</label>
+             <input type="text" class="form-control" id="rolename" name="name" [(ngModel)]="role.name" required>
+           </div>
+           <div class="mb-3">
+             <label for="email" class="form-label">Privilegios</label>
+             <input type="email" class="form-control" id="roleemail" name="email" [(ngModel)]="role.email" required>
+           </div>
+         </div>
+         <div class="modal-footer">
+           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+           <button type="submit" class="btn btn-primary" [disabled]="roleForm.invalid">Guardar</button>
+         </div>
+       </form>
+     </div>
+   </div>
+ </div>
 
 <!-- Marcado del modal de servicios -->
 <div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
@@ -171,6 +197,34 @@
     </div>
   </div>
 </div>
+
+ <!-- Modal de Edición de Rol -->
+ <div class="modal fade" id="editRoleModal" tabindex="-1" aria-labelledby="editRoleModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="editRoleModalLabel">Editar Rol</h5>
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+       </div>
+       <form (ngSubmit)="onEditRole()" #editRoleForm="ngForm">
+         <div class="modal-body">
+           <div class="mb-3">
+             <label for="editRoleName" class="form-label">Nombre del Rol</label>
+             <input type="text" class="form-control" id="editRoleName" name="editRoleName" [(ngModel)]="editedRole.name" required>
+           </div>
+           <div class="mb-3">
+             <label for="editRoleDescription" class="form-label">Privilegios</label>
+             <textarea class="form-control" id="editRoleDescription" name="editRoleDescription" [(ngModel)]="editedRole.email" required></textarea>
+           </div>
+         </div>
+         <div class="modal-footer">
+           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+           <button type="submit" class="btn btn-primary" [disabled]="editRoleForm.invalid">Guardar Cambios</button>
+         </div>
+       </form>
+     </div>
+   </div>
+ </div>
 
 
 
