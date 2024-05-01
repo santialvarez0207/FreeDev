@@ -19,9 +19,12 @@
           <div class="pd-buttom-input col-12 d-flex justify-content-center">
             <button class="btn-header bt-into col-6" [disabled]="form.value.user === '' && form.value.password === ''" (click)="getInto()">Ingresar</button>
           </div>
+          <form [formGroup]="form">
           <div class="pd-lost into col-12 d-flex justify-content-center">
-            <label class="col-7">Olvide mi contraseña</label>
+            <label class="col-7 forgotPass" formControlName="forgotPassword" data-bs-toggle="modal"
+            data-bs-target="#passModal">Olvide mi contraseña</label>
           </div>
+        </form>
 
         </div>
 
@@ -39,4 +42,28 @@
 
   </div>
 
+</div>
+
+<!--Modal Olvido la Contraseña-->
+<div class="modal fade" id="passModal" tabindex="-1" aria-labelledby="passModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="passModalLabel">Recuperar contraseña</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form (ngSubmit)="recoverPass()"  #userForm="ngForm"> <!--(ngSubmit)="recoverPass()"-->
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="email" class="form-label">Correo electrónico</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Recuperar</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

@@ -33,7 +33,7 @@
                             formControlName="identType">-->
                     </div>
                     <div class="col-12 col-md-4">
-                        <input type="text" placeholder="No. de identificacion*" class="size-input"
+                        <input type="number" placeholder="No. de identificacion*" class="size-input"
                             formControlName="identNumber">
                     </div>
                 </div>
@@ -44,10 +44,10 @@
             <form [formGroup]="form">
                 <div class="row d-flex justify-content-center">
                     <div class="col-12 col-md-4">
-                        <input type="text" placeholder="Correo Electronico*" class="size-input" formControlName="email">
+                        <input type="email" placeholder="Correo Electronico*" class="size-input" formControlName="email">
                     </div>
                     <div class="col-12 col-md-4">
-                        <input type="text" placeholder="Celular*" class="size-input" formControlName="contact">
+                        <input type="number" placeholder="Celular*" class="size-input" formControlName="contact">
                     </div>
                 </div>
             </form>
@@ -70,11 +70,11 @@
             <form [formGroup]="form">
                 <div class="row d-flex justify-content-center">
                     <div class="col-12 col-md-4">
-                        <input type="password" placeholder="Contraseña*" class="size-input" formControlName="password">
+                        <input type="password" placeholder="Contraseña*" class="size-input" formControlName="initPassword">
                     </div>
                     <div class="col-12 col-md-4">
                         <input type="password" placeholder="Confirmar Contraseña*" class="size-input"
-                            formControlName="password">
+                            formControlName="confPassword">
                     </div>
                 </div>
             </form>

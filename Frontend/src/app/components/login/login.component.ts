@@ -15,7 +15,8 @@ export class LoginComponent {
 
   form = new FormGroup({
     user: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required)
+    password: new FormControl('', Validators.required),
+    forgotPassword: new FormControl('', Validators.required)
   });
 
 
@@ -41,6 +42,10 @@ export class LoginComponent {
       swal.fire('Hubo un error', `El usuario o clave son incorrectos`, 'error');
     }
 
+  }
+
+  recoverPass() {
+    swal.fire({text: "Si su correo se encuentra registrado recibira un correo para recuperar la contraseña ",  icon: "success"});
   }
 
 }
