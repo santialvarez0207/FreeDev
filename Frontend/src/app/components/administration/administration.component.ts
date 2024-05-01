@@ -11,23 +11,24 @@ export class AdministrationComponent {
   users: any[] = [];
   service: any = {};
   services: any[] = [];
-  role: any = {};
+  rol: any = {};
   roles: any[] = [];
   editedService: any = {}; // Almacena los datos del servicio que se está editando
-  editedRole: any = {};
+  editedUser: any= {};
 
   constructor() {
     this.users = [
       { id: 1, name: 'Usuario 1', email: 'usuario1@example.com' },
       { id: 2, name: 'Usuario 2', email: 'usuario2@example.com' },
     ];
+
     this.roles = [
-      { id: 1, name: 'Admin', email: 'superuser' },
-      { id: 2, name: 'guest', email: 'read_only' },
+      { id: 1, name: 'Admin', descri: 'rol encargado de administar' },
+      { id: 2, name: 'Visualizador', descri: 'rol de consulta' },
     ];
 
-    const storedRoles = localStorage.getItem('roles');
-    this.roles = storedRoles ? JSON.parse(storedRoles) : [];
+    const storedUsers = localStorage.getItem('users');
+    this.users = storedUsers ? JSON.parse(storedUsers) : [];
 
     const storedServices = localStorage.getItem('services');
     this.services = storedServices ? JSON.parse(storedServices) : [];
@@ -35,14 +36,8 @@ export class AdministrationComponent {
 
   onSubmit() {
     console.log('Usuario guardado:', this.user);
-    this.addUser();
+    this.addUser(); // Llamada a la función para agregar el servicio
     $('#userModal').modal('hide');
-  }
-
-  onSubmitRoles() {
-    console.log('Rol guardado:', this.role);
-    this.addRole();
-    $('#roleModal').modal('hide');
   }
 
   onSubmitService() {
@@ -61,31 +56,24 @@ export class AdministrationComponent {
     $('#editServiceModal').modal('hide');
   }
 
-  onEditRole() {
-    const index = this.roles.findIndex(s => s.id === this.editedRole.id);
-    if (index !== -1) {
-      this.roles[index] = { ...this.editedRole };
-      localStorage.setItem('roles', JSON.stringify(this.roles));
-    }
-    $('#editRolesModal').modal('hide');
-  }
-
-  addRole() {
-    this.roles.push({ ...this.role });
-    this.role = {};
-  }
-
-  deleteRole(index: number) {
-    this.roles.splice(index, 1);
-  }
-
   addUser() {
     this.users.push({ ...this.user });
+    localStorage.setItem('users', JSON.stringify(this.users));
     this.user = {};
   }
 
   deleteUser(index: number) {
     this.users.splice(index, 1);
+  }
+
+  onEditUser() {
+    // Buscar el usuario editado en la lista de usruarios y actualizarlo
+    const index = this.users.findIndex(s => s.id === this.editedUser.id);
+    if (index !== -1) {
+      this.users[index] = { ...this.editedUser };
+      localStorage.setItem('users', JSON.stringify(this.users));
+    }
+    $('#editUserModal').modal('hide'); 
   }
 
   addService() {
@@ -103,9 +91,9 @@ export class AdministrationComponent {
     this.editedService = { ...service };
     $('#editServiceModal').modal('show');
   }
-  openEditModalRole(role: any) {
-    this.editedRole = { ...role };
-    $('#editRoleModal').modal('show');
-  }
 
+  openEditUserModal(user: any) {
+    this.editedUser = { ...user };
+    $('#editUserModal').modal('show'); 
+  }
 }

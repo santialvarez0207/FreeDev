@@ -12,19 +12,7 @@ header{
     width: 200px;
 }
 
-.BodyNav{
-    display: flex;
-    width: calc(100% - 500px);
-    color: #fafafafa;
-    font-size: 20px;
-    justify-content: flex-end;
-    gap: 60px;
-    padding-right: 40px;
-}
 
-.option{
-    cursor: pointer;
-}
 
 .btn-header{
     background-color: #D0BD14;
