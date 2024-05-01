@@ -1,40 +1,42 @@
 <div class="row">
-    <div class="login-image">
-  
-      <!--Modulo Login-->
-      <div class="principal col-12">
-        <div class="login col-12">
-          <div class="col-12 login-1">
-            <div class="into tittle col-12 d-flex justify-content-center">
-              <h5>INGRESE SUS DATOS</h5>
-            </div>
-            <div class="col-12 d-flex justify-content-center">
-              <input type="text" placeholder="Usuario">
-            </div>
-            <div class="pd-buttom-input col-12 d-flex justify-content-center">
-              <input type="password" placeholder="Contraseña">
-            </div>
-            <div class="pd-buttom-input col-12 d-flex justify-content-center">
-              <button class="btn-header bt-into col-6">Ingresar</button>
-            </div>
-            <div class="pd-lost into col-12 d-flex justify-content-center">
-              <label class="col-7">Olvide mi contraseña</label>
-            </div>
-  
+  <div class="login-image">
+
+    <!--Modulo Login-->
+    <div class="principal col-12">
+      <div class="login col-12">
+        <div class="col-12 login-1">
+          <div class="into tittle col-12 d-flex justify-content-center">
+            <h5>INGRESE SUS DATOS</h5>
           </div>
-  
-          <div class="col-12 login-down">
-            <div class="pd-down into">
-              <label class="col-12">¿Nuevo en este sitio?</label>
-              <label class="col-12">Registrate aquí</label>
-            </div>
+          <form [formGroup]="form">
+          <div class="col-12 d-flex justify-content-center">
+            <input type="text" placeholder="Usuario" formControlName="user">
           </div>
-  
+          <div class="pd-buttom-input col-12 d-flex justify-content-center">
+            <input type="password" placeholder="Contraseña" formControlName="password">
+          </div>
+        </form>
+          <div class="pd-buttom-input col-12 d-flex justify-content-center">
+            <button class="btn-header bt-into col-6" [disabled]="form.value.user === '' && form.value.password === ''" (click)="getInto()">Ingresar</button>
+          </div>
+          <div class="pd-lost into col-12 d-flex justify-content-center">
+            <label class="col-7">Olvide mi contraseña</label>
+          </div>
+
         </div>
-  
+
+        <div class="col-12 login-down">
+          <div class="pd-down into">
+            <label class="col-12">¿Nuevo en este sitio?</label>
+            <label class="col-12 register" (click)="goRegister()">Registrate aquí</label>
+          </div>
+        </div>
+
       </div>
-  
-  
+
     </div>
-  
+
+
   </div>
+
+</div>
